@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div,h2{ font-family: Courier New;
+        text-align: center;}
+    </style>
+
+    <title>Regstration</title>
+</head>
+<body style="background-image:url({% static 'images/reg1.jpg' %});">
+<h2><u>REGISTRATION FOR NEW USER</u></h2><br>
+<form action="register" method="post">
+    {% csrf_token %}
+    <div>
+        <div style="font-family: Courier New;"> Enter your User name :
+            <input type="text" name="username" placeholder="Enter your username">
+        </div><br>
+        <div> Enter your First name :
+            <input type="text" name="first_name" placeholder="Enter your first name">
+        </div><br>
+        <div> Enter your Last name :
+            <input type="text" name="last_name" placeholder="Enter your last name">
+        </div><br>
+        <div> Enter your E-mail address :
+            <input type="email" name="mail" placeholder="Enter your mail address">
+        </div><br>
+<!--        <div> Enter your Mobile number-->
+<!--            <input type="text" name="phone" placeholder="Enter your mobile number">-->
+<!--        </div><br>-->
+        <div> Enter your Password :
+            <input type="password" name="password" placeholder="Enter your password">
+        </div><br>
+        <div> Confirm your Password :
+            <input type="password" name="repassword" placeholder="confirm your password">
+        </div><br><br>
+
+        <div style="color: yellow;"><input type="submit" name="submit" placeholder="submit" style="color: yellow; background-color: blue;"></div>
+    </div>
+
+
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
